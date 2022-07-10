@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<div align="center">
+    <img align="center" src="https://milesr.dev/res/img/logo.png" width="100">
+    <h1>milesr.dev (Version 2)</h1>
+    <p>A refreshed version of milesr.dev refreshed design & new technologies.</p>
+</div>
 
-First, run the development server:
+## What is milesr.dev?
+It's my portfolio website containing information about me, previous works, experience, and current projects.
+People can contact me through the website, and I can edit my portfolio and site settings on the fly with a panel/dashboard.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Whats improved in milesr.dev V2?
+- New look and new technologies
+- New dashboard panel
+- New contact form
+- New contact form settings
+- CMS (Content Management System) for works and projects
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What technologies are new?
+As aposed to milesr.dev V1, milesr.dev V2 uses the following technologies:
+- [Next.js & React](https://nextjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [SASS](https://sass-lang.com/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Forming a "MENTS" (MongoDB, Express.js, Next.js, TailwindCSS, SASS) stack. <br>
+Unlike milesr.dev V1, milesr.dev V2 takes advantage of SSR (Server Side Rendering) to render the website to optimize SEO and performance.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Accessability
+In V2 of the site, I've made sure that the website is accessible to all users with a minimum of difficulty.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+Copyright (C) milesr.dev - All Rights Reserved <br>
+Unauthorized copying of this file, via any medium is strictly prohibited <br>
+Written by Miles Rush <miles@milesr.dev>, July 2022

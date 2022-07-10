@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind utilities;
+
+html, body {
+    background: linear-gradient(135deg, #492cdd 0%, #AD38E2 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: transparent;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+section.abt {
+    margin-top: -10%;
+}
+
+.text-purple-theme {
+    color: #AD38E2;
+}
