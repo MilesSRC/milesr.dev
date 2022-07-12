@@ -1,5 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Component } from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSunset } from '@fortawesome/pro-duotone-svg-icons';
 
 interface ProjectProps {
     title: string;
@@ -8,6 +12,9 @@ interface ProjectProps {
     link: string;
     image: string;
     development?: boolean;
+    shutdown?: {
+        year: number;
+    }
 }
 
 export default class Project extends Component<ProjectProps> {
@@ -24,8 +31,17 @@ export default class Project extends Component<ProjectProps> {
                     <p><strong>Technologies:</strong> { this.props.technologies.map((s,i,a) => i != a.length - 1 ? s + ", " : "and " + s) }</p>
                 </div>
 
-                <div>
-                    
+                <div className="text-center">
+                    <button className="disabled:cursor-not-allowed disabled:opacity-50" disabled={this.props.development || this.props.shutdown !== undefined}>
+                        { this.props.development ?  " In Development" : this.props.shutdown ? (<>
+                            <FontAwesomeIcon icon={faSunset} />
+                            <span className="ml-1">Shutdown in {this.props.shutdown.year}</span>
+                        </>) : (<>
+                            <Link href={this.props.link}>
+                                <a className="hover:underline">Visit Website</a>
+                            </Link>
+                        </>) }
+                    </button>
                 </div>
             </div>
         )
