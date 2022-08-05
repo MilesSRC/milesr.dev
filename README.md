@@ -31,6 +31,15 @@ Unlike milesr.dev V1, milesr.dev V2 takes advantage of SSR (Server Side Renderin
 ## Accessability
 In V2 of the site, I've made sure that the website is accessible to all users with a minimum of difficulty.
 
+## Build
+In ``.env`` replace ``SECRET=your_secret_key`` to your own <br>
+Run ``npm run build`` to build the website. <br>
+Then ``npm run start`` to start the server. <br>
+
+## API
+Using ``/api/reg?secret=your_secret_key`` to regenerate/revalidate a page with new static content. <br>
+Pages are all built during build time to maximize performance and must be manually regenerated if you want to update the content.
+
 ## License
 Copyright (C) milesr.dev - All Rights Reserved <br>
 Unauthorized copying of this file, via any medium is strictly prohibited <br>

@@ -1,6 +1,6 @@
 {
   "name": "milesr.dev-ver2",
-  "version": "0.1.0",
+  "version": "STATIC-0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

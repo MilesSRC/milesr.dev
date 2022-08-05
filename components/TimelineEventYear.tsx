@@ -22,9 +22,7 @@ type TimelineYear = {
 }
 
 export default class TimelineEventYear extends Component<TimelineYear> {
-    render() {
-        console.log(this.props);
-        
+    render() {        
         return <div>
             <h2 className="m-2">{this.props.year}</h2>
             <div className="flex flex-col space-y-5">

@@ -10,6 +10,8 @@ import TimelineEvent from '../components/TimelineEvent';
 import { IconName, IconPrefix, IconProp } from '@fortawesome/fontawesome-svg-core';
 import TimelineEventYear from '../components/TimelineEventYear';
 
+import info from '../package.json';
+
 interface IProject {
   title: string;
   description: string;
@@ -36,11 +38,15 @@ interface ITimelineEvent {
   }
 }
 
-const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<typeof getStaticProps>) => { 
+interface ISetting { field: string, enabled: boolean, data?: { text?: string, message?: string, icon?: string } }
+
+const Home: NextPage = ({ projects, timelineEvents, settings }: InferGetStaticPropsType<typeof getStaticProps>) => { 
   let [age, setAge] = useState("0");
   let [generalExperience, setGeneralExperience] = useState("0");
   let [timelineElements, setTimelineElements] = useState<JSX.Element[]>([]);
   let [loading, setLoading] = useState(true);
+
+  let [sets, setSets] = useState(new Map<string, ISetting>());
 
   useEffect(() => {
     /* Figure out how old I am, and set the "age" state to the result (DOB: 03/17/2005) */
@@ -78,8 +84,18 @@ const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<ty
     elements.sort((a,b) => b.props.year - a.props.year);
 
     setTimelineElements(elements);
-    setLoading(false);  
-  }, []);
+    setLoading(false);
+
+    /* Additionals */
+    let map = new Map<string, ISetting>();
+
+    settings.forEach((setting: ISetting) => {
+      if(setting.enabled)
+        map.set(setting.field, setting);
+    });
+
+    setSets(map);
+  }, [settings, timelineEvents]);
 
   return (
     <div className='h-screen'>
@@ -89,6 +105,10 @@ const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<ty
         <meta charSet="UTF-8"></meta>
       </Head>
 
+      <div className={'w-full p-3 text-xl bg-amber-600 text-center ' + (sets.has("notification") && sets.get("notification")?.enabled ? 'visible' : 'hidden') }>
+        { sets.get('notification')?.data?.text }
+      </div>
+
       <header className='mx-auto m-4 flex items-center lg:w-6/12 lg:px-0 px-2 justify-between'>
         <div>
           <Link href='/' className="align-middle flex space-x-4">
@@ -97,9 +117,9 @@ const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<ty
         </div>
         <div className="flex space-x-3 items-center">
             <Link href="https://status.milesr.dev">Status</Link>
-            <Link href="/contact">
+            { sets.has("contactable") || sets.size < 0 ? <Link href="/contact">
               <a className='rounded-md border-2 border-white p-2 hover:bg-white hover:text-black transition-colors'>Contact</a>
-            </Link>      
+            </Link> : null }      
         </div>
       </header>
 
@@ -180,15 +200,30 @@ const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<ty
 
       {/* Footer */}
       <footer className='flex flex-col justify-center items-center space-y-2 p-8 bg-slate-800'>
-        <div className='footer-push p-6 bg-slate-800 shadow-2xl shadow-purple-500 rounded-md flex space-x-20 justify-between items-center'>
+        { sets.has("contactable") || sets.size < 0 ? <div className='footer-push p-6 bg-slate-800 shadow-2xl shadow-purple-500 rounded-md flex space-x-20 justify-between items-center'>
           <h2 className='text-xl'>Looking to work on a project together?</h2>
           <Link href={"/contact?iam=developer"}>
             <a className='rounded-md border-2 border-white p-2 hover:bg-white hover:text-black transition-colors'>Contact</a>
           </Link>
-        </div>
+        </div> : null}
 
         <h1 className="text-xl">Miles Rush</h1>
+        <div className="socials flex space-x-3">
+          <div className=' border-2 border-white p-3 rounded-full transition-all hover:border-purple-400'>
+            <Link href="https://twitter.com/LuaSwitch" className=' border-2 border-white p-6 rounded-full'><Image src="/res/svg/icon/twitter.svg" alt="Twitter.com Icon" className={"fa-lg svg-inline--fa"} width={30} height={30} layout="fixed"></Image></Link>
+          </div>
+          <div className=' border-2 border-white p-3 rounded-full transition-all hover:border-purple-400'>
+            <Link href="https://github.com/MilesSRC" className=' border-2 border-white p-6 rounded-full'><Image src="/res/svg/icon/github.svg" alt="Github.com Icon" className={"fa-lg svg-inline--fa"} width={30} height={30} layout="fixed"></Image></Link>
+          </div>
+          <div className=' border-2 border-white p-3 rounded-full transition-all hover:border-purple-400'>
+            <Link href="https://twitch.tv/dubbyyt" className=' border-2 border-white p-6 rounded-full'><Image src="/res/svg/icon/twitch.svg" alt="Twitch.tv Icon" className={"fa-lg svg-inline--fa"} width={30} height={30} layout="fixed"></Image></Link>
+          </div>
+          <div className=' border-2 border-white p-3 rounded-full transition-all hover:border-purple-400'>
+            <Link href="mailto:miles@milesr.dev" className=' border-2 border-white p-6 rounded-full'><Image src="/res/svg/icon/envelope.svg" alt="Envelope Icon" className={"fa-lg svg-inline--fa"} width={30} height={30} layout="fixed"></Image></Link>
+          </div>
+        </div>
         <span>milesr.dev &copy; { new Date().getFullYear() }</span>
+        <span>Running version { info.version }</span>
       </footer>
     </div>
   )
@@ -197,109 +232,19 @@ const Home: NextPage = ({ projects, timelineEvents }: InferGetStaticPropsType<ty
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  let projects = [{
-    title: "DarkCAD",
-    description: "A CAD/MDT application for roleplay communities",
-    technologies: ["Next.js", "Typescript", "NodeJS", "MongoDB", "Socket.IO", "Express"],
-    link: "https://darkcad.net",
-    image: "/res/svg/darkcad.svg",
-    development: true,
-  }, {
-    title: "LightChat",
-    description: "A chat application for long-term message storage, and lightning fast communication.",
-    technologies: ["Next.js", "Typescript", "NodeJS", "MongoDB", "Socket.IO", "Express"],
-    link: "https://lightchat.io",
-    image: "/res/svg/lightchat.svg",
-    development: true,
-  }, {
-    title: "RVerify",
-    description: "A verification system for ROBLOX players on Discord",
-    technologies: ["Discord.js", "NodeJS", "MongoDB", "ROBLOX Scripting", "Express"],
-    link: "https://rverify.io",
-    image: "/res/svg/rverify.svg",
-    development: true,
-  }, {
-    title: "URL Shortener",
-    description: "A URL Shortener that's heavily scalable.",
-    technologies: ["NodeJS", "MongoDB", "Typescript", "Express", "TailwindCSS"], 
-    link: "https://dubg.us/",
-    image: "/res/svg/logo.svg"
-  }, {
-    title: "milesr.dev",
-    description: "A portfolio website for Miles Rush",
-    technologies: ["NodeJS", "Express", "Typescript", "MongoDB", "Sass", "TailwindCSS", "Next.JS"],
-    link: "https://milesr.dev",
-    image: "/res/svg/logo.svg"
-  }, {
-    title: "Guardian",
-    description: "A discord bot focused on moderation & security.",
-    technologies: ["Discord.js", "NodeJS", "MongoDB", "Express", "TailwindCSS", "Next.JS"],
-    link: "https://guardianbot.io/",
-    image: "https://guardianbot.io/logo.svg",
-    shutdown: {
-      year: 2020
-    }
-  }];
-  let timelineEvents: ITimelineEvent[] = [{
-    name: "Started my coding journey",
-    time: {
-      year: 2015,
-      month: 9,
-      day: 28
-    },
-    icon: {
-      library: "fad",
-      icon: "stars"
-    }
-  }, {
-    name: "Started learning JS & NodeJS & Discord.js",
-    time: {
-      year: 2017,
-      month: 4,
-      day: 29
-    },
-    icon: {
-      library: "fab",
-      icon: "discord"
-    }
-  }, {
-    name: "Started learning HTML & CSS",
-    time: {
-      year: 2018,
-      month: 5,
-      day: 28
-    },
-    icon: {
-      library: "fab",
-      icon: "html5"
-    }
-  }, {
-    name: "Created my first website (dubgames.net)",
-    time: {
-      year: 2018,
-      month: 6,
-      day: 12
-    },
-    icon: {
-      library: "fad",
-      icon: "code"
-    }
-  }, {
-    name: "Created my first successful ROBLOX game",
-    time: {
-      year: 2019,
-      month: 11
-    },
-    icon: {
-      library: "fad",
-      icon: "gamepad"
-    }
-  }];
+  const res = await fetch('http://localhost:3003/build');
+  let data = await res.json();
+  let projects = data.projects;
+  let timelineEvents: ITimelineEvent[] = data.timeline;
+
+  const sets = await fetch('http://localhost:3003/settings').catch(() => {});
+  let settings = await sets?.json();
 
   return {
     props: {
       projects,
-      timelineEvents
+      timelineEvents,
+      settings: settings || []
     }
   }
 };
