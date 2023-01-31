@@ -28,7 +28,7 @@ As aposed to milesr.dev V1, milesr.dev V2 uses the following technologies:
 Forming a "MENTS" (MongoDB, Express.js, Next.js, TailwindCSS, SASS) stack. <br>
 Unlike milesr.dev V1, milesr.dev V2 takes advantage of SSR (Server Side Rendering) to render the website to optimize SEO and performance.
 
-## Accessability
+## Accessibility
 In V2 of the site, I've made sure that the website is accessible to all users with a minimum of difficulty.
 
 ## Build
