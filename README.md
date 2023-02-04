@@ -11,10 +11,10 @@ People can contact me through the website, and I can edit my portfolio and site 
 
 ## Whats improved in milesr.dev V2?
 - New look and new technologies
-- New dashboard panel
-- New contact form
-- New contact form settings
-- CMS (Content Management System) for works and projects
+- (TODO) New dashboard panel
+- (TODO) New contact form
+- (TODO) New contact form settings
+- (TODO) CMS (Content Management System) for works and projects
 
 ## What technologies are new?
 As aposed to milesr.dev V1, milesr.dev V2 uses the following technologies:
