@@ -110,7 +110,7 @@ const Home: NextPage = ({ projects, timelineEvents, settings }: InferGetStaticPr
 
         {/* Current Event */}
         <Confetti
-          width={windowwidth}
+          width={windowwidth - 20}
           height={windowheight}
           numberOfPieces={200}
           run={isBirthday || isNewYears}

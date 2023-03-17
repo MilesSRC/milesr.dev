@@ -97,6 +97,6 @@ export default function TheStars() {
     }, []);
 
     return (
-        <canvas className="TheStars h-full w-full" ref={canvasRef} />
+        <canvas className="TheStars" ref={canvasRef} />
     );   
 }
