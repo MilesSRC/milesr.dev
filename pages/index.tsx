@@ -138,7 +138,7 @@ const Home: NextPage = ({ projects, timelineEvents, settings }: InferGetStaticPr
               <p className='hidden sm:block text-7xl'>&#128075;</p>
             </div>
 
-            <p className='mt-10 text-lg font-light uppercase tracking-wider'>"Shoot for the stars"</p>
+            <p className='mt-10 text-lg font-light uppercase tracking-wider'>&quot;Shoot for the stars&quot;</p>
           </div>
         </section>
 
@@ -151,7 +151,7 @@ const Home: NextPage = ({ projects, timelineEvents, settings }: InferGetStaticPr
             <br />
             I have a quick learning ability and always seek to expand my knowledge.
             <br /><br />
-            On a personal note, I grew up in Portland, Oregon, in my grandmother's house, where she provided support for my family and me. I owe everything to her and am grateful for her love and guidance.
+            On a personal note, I grew up in Portland, Oregon, in my grandmother&apos;s house, where she provided support for my family and me. I owe everything to her and am grateful for her love and guidance.
           </>
         </Section>
 

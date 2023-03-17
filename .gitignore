@@ -36,3 +36,6 @@ yarn-error.log*
 
 # swc
 /.swc/
+
+# Env
+.env

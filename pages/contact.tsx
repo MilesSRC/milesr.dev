@@ -5,8 +5,6 @@ import { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Stars from "../components/Stars";
 
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-
 const Contact: NextPage = ({ settings }: InferGetStaticPropsType<typeof getStaticProps>) => {
   let [sets, setSets] = useState(new Map<string, ISetting>());
 
@@ -20,7 +18,8 @@ const Contact: NextPage = ({ settings }: InferGetStaticPropsType<typeof getStati
     });
 
     setSets(map);
-  }, [])good mronin
+  }, [])
+
   // Captcha/Form handlers
   let [token, setToken] = useState("");
   let [refresh, setRefresh] = useState(false);
@@ -56,10 +55,6 @@ const Contact: NextPage = ({ settings }: InferGetStaticPropsType<typeof getStati
               <meta name="description" content="The contact page to reach/hire miles rush, a freelance fullstack web developer." />
           </Head>
 
-          <GoogleReCaptchaProvider 
-            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-            language="en"
-          />
           <Stars />
 
           <main>
