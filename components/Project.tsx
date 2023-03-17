@@ -20,8 +20,8 @@ interface ProjectProps {
 export default class Project extends Component<ProjectProps> {
     render() {
         return (
-            <div className="rounded-md shadow-2xl bg-slate-700 text-white min-h-full p-6 text-left flex flex-col justify-between">
-                <div className="flex flex-col text-center">
+            <div className="rounded-md drop-shadow-2xl bg-white text-black min-h-full p-6 text-left flex flex-col justify-between">
+                <div className="flex flex-col text-center py-2">
                     <Image src={this.props.image} alt={this.props.title + " logo"} layout="intrinsic" width={50} height={50} className="mx-auto" />
                     <h1 className="font-semibold">{ this.props.title }</h1>
                     <p>{ this.props.description }</p>

@@ -29,10 +29,9 @@ export default class TimelineEvent extends React.Component<ITimelineEvent> {
         let time = new Date(this.props.time.year + "-" + this.props.time.month + "-" + (this.props.time.day || 1));
 
         return (
-        <div className='bg-slate-800 rounded-sm p-4 flex space-x-5 lg:text-2xl shadow-2xl flex-col'>
-            <div className="flex space-x-2 my-3 align-middle text-start items-center">
+        <div className='bg-violet-800 p-4 drop-shadow-lg rounded-lg'>
+            <div className="flex space-x-3 align-middle text-start items-center">
                 <Image src={`/res/svg/icon/${this.props.icon.icon}.svg`} alt={`${this.props.icon.icon} icon`} width={50} height={50} layout={"fixed"} className={"fa-lg svg-inline--fa "} />
-                <strong>{ time.toLocaleString("default", { month: "long" }) + " " + time.getDate() }:</strong>
                 <h3>{this.props.name}</h3>
             </div>
         </div>

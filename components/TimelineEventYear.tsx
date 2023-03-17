@@ -23,9 +23,10 @@ type TimelineYear = {
 
 export default class TimelineEventYear extends Component<TimelineYear> {
     render() {        
-        return <div>
-            <h2 className="m-2">{this.props.year}</h2>
-            <div className="flex flex-col space-y-5">
+        return <div className="p-4 drop-shadow-md bg-violet-600 rounded-sm">
+            <h2 className="m-2 font-bold">{this.props.year}</h2>
+            <div className="flex flex-col space-y-4">
+
                 {this.props.events.sort((a,b) => b.time.month - a.time.month).map((event, index) => {
                     return <TimelineEvent key={index} {...event} />
                 })}

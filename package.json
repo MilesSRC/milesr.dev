@@ -1,6 +1,6 @@
 {
   "name": "milesr.dev-ver2",
-  "version": "STATIC-0.1.0",
+  "version": "STARS-0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,13 +19,15 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "next": "12.2.0",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "18.2.0",
+    "react-google-recaptcha-v3": "^1.10.1",
     "sass": "^1.53.0"
   },
   "devDependencies": {
     "@types/node": "18.0.1",
-    "@types/react": "18.0.14",
+    "@types/react": "^18.0.14",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.7",
     "eslint": "8.19.0",

@@ -1,9 +1,12 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Stars from "../components/Stars";
 
 const Page: NextPage = () => {
     return <div className="w-full h-screen flex align-middle justify-center flex-col text-center text-lg">
+        <Stars />
+
         <div>
             <Image src="/res/svg/logo-white.svg" alt="milesr.dev logo" width={50} height={50} layout='fixed' />
             <h1 className="text-5xl"><strong>404</strong></h1>

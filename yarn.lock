@@ -119,9 +119,14 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-win32-x64-msvc@12.2.0":
-  "integrity" "sha512-OI14ozFLThEV3ey6jE47zrzSTV/6eIMsvbwozo+XfdWqOPwQ7X00YkRx4GVMKMC0rM44oGS2gmwMKYpe4EblnA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.0.tgz"
+"@next/swc-linux-x64-gnu@12.2.0":
+  "integrity" "sha512-MyhHbAKVjpn065WzRbqpLu2krj4kHLi6RITQdD1ee+uxq9r2yg5Qe02l24NxKW+1/lkmpusl4Y5Lks7rBiJn4w=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.2.0.tgz"
+  "version" "12.2.0"
+
+"@next/swc-linux-x64-musl@12.2.0":
+  "integrity" "sha512-Tz1tJZ5egE0S/UqCd5V6ZPJsdSzv/8aa7FkwFmIJ9neLS8/00za+OY5pq470iZQbPrkTwpKzmfTTIPRVD5iqDg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.2.0.tgz"
   "version" "12.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -179,7 +184,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.0.14":
+"@types/react@*", "@types/react@^18.0.14":
   "integrity" "sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.14.tgz"
   "version" "18.0.14"
@@ -1071,6 +1076,13 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"hoist-non-react-statics@^3.3.2":
+  "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
+  "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+  "version" "3.3.2"
+  dependencies:
+    "react-is" "^16.7.0"
+
 "ignore@^5.2.0":
   "integrity" "sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ=="
   "resolved" "https://registry.npmjs.org/ignore/-/ignore-5.2.0.tgz"
@@ -1648,12 +1660,19 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
+"react-confetti@^6.1.0":
+  "integrity" "sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw=="
+  "resolved" "https://registry.npmjs.org/react-confetti/-/react-confetti-6.1.0.tgz"
+  "version" "6.1.0"
+  dependencies:
+    "tween-functions" "^1.2.0"
+
 "react-content-loader@^6.2.0":
   "integrity" "sha512-r1dI6S+uHNLW68qraLE2njJYOuy6976PpCExuCZUcABWbfnF3FMcmuESRI8L4Bj45wnZ7n8g71hkPLzbma7/Cw=="
   "resolved" "https://registry.npmjs.org/react-content-loader/-/react-content-loader-6.2.0.tgz"
   "version" "6.2.0"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@18.2.0":
+"react-dom@^17.0 || ^18.0", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1661,12 +1680,19 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
-"react-is@^16.13.1":
+"react-google-recaptcha-v3@^1.10.1":
+  "integrity" "sha512-K3AYzSE0SasTn+XvV2tq+6YaxM+zQypk9rbCgG4OVUt7Rh4ze9basIKefoBz9sC0CNslJj9N1uwTTgRMJQbQJQ=="
+  "resolved" "https://registry.npmjs.org/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.10.1.tgz"
+  "version" "1.10.1"
+  dependencies:
+    "hoist-non-react-statics" "^3.3.2"
+
+"react-is@^16.13.1", "react-is@^16.7.0":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0", "react@>=16.3", "react@18.2.0":
+"react@^16.3 || ^17.0 || ^18.0", "react@^16.3.0 || ^17.0.1 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0", "react@>=16.3", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -1939,6 +1965,11 @@
   "version" "3.21.0"
   dependencies:
     "tslib" "^1.8.1"
+
+"tween-functions@^1.2.0":
+  "integrity" "sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA=="
+  "resolved" "https://registry.npmjs.org/tween-functions/-/tween-functions-1.2.0.tgz"
+  "version" "1.2.0"
 
 "type-check@^0.4.0", "type-check@~0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="

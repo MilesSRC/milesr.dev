@@ -8,6 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         await res.revalidate('/');
+        await res.revalidate('/contact');
         return res.status(200).send({
             message: "Regenerated"
         });
