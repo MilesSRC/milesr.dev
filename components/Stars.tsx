@@ -18,6 +18,10 @@ export default function TheStars() {
 
         if (context === null) return;
 
+        // Update resolution
+        canvas.width = canvas.clientWidth * 2;
+        canvas.height = canvas.clientHeight * 2;
+
         // Move and redraw the stars
         const moveStars = (previousStars: [number, number][]) => {
             // Resize the canvas if it has been resized
@@ -96,7 +100,7 @@ export default function TheStars() {
         });
 
         // Clean up
-        return () => cancelAnimationFrame(0);
+        return () => {cancelAnimationFrame(0)};
     }, []);
 
     return (
