@@ -5,6 +5,11 @@ export default function TheStars() {
     const [stars, setStars] = useState<[number, number][]>([]);
 
     useEffect(() => {
+        // Find total 'n' amount of stars based on the canvas resolution
+        let nStars = 1000;
+        let resized = false;
+        let initialStars: [number, number][];
+
         const canvas = canvasRef.current;
 
         if (canvas === null) return;
@@ -12,19 +17,6 @@ export default function TheStars() {
         const context = canvas.getContext("2d");
 
         if (context === null) return;
-
-        // Find total 'n' amount of stars based on the canvas resolution
-        let nStars = 1000;
-
-        // Create initial stars
-        let initialStars: [number, number][] = [...Array(nStars)].map(() => [
-            Math.random() * canvas.width,
-            Math.random() * canvas.height,
-        ]);
-
-        setStars(initialStars);
-
-        let resized = false;
 
         // Move and redraw the stars
         const moveStars = (previousStars: [number, number][]) => {
@@ -67,8 +59,19 @@ export default function TheStars() {
             requestAnimationFrame(() => moveStars(newStars));
         };
 
-        // Start the animation loop
-        moveStars(initialStars);
+
+        setTimeout(() => {
+            // Create initial stars
+            let initialStars: [number, number][] = [...Array(nStars)].map(() => [
+                Math.random() * canvas.width,
+                Math.random() * canvas.height,
+            ]);
+
+            setStars(initialStars);
+
+            // Start the animation loop
+            moveStars(initialStars);
+        }, 200)
 
         // Window Resize Listener
         window.addEventListener('resize', () => {
